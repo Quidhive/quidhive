@@ -15,6 +15,33 @@
   --color-text-white: #F2F4FF;
   --color-bg-elev-1: #111B50;
   --color-bg-elev-2: #0A1239;
+  --color-bg-100: #01051C;
+  --color-bg-25: #30354B;
+  --color-bg-75: #060B26;
+  --color-bg-50: #1A1F37;
+  --color-text-white-alt: #D2DBFF;
+  --color-primary-green: #9FE870;
+  --color-green-hover: #80E142;
+  --color-button-secondary: #131B3E;
+  --color-button-secondary-hover: #0A1237;
+  --color-deep-green: #163300;
+  --color-text-blue: #0075FF;
+  --color-text-faded-2: #8690C0;
+  --color-text-faded-3: #B2BCEB;
+  --color-text-faded-4: #BFCEF7;
+  --color-text-faded: #8C89B4;
+  --color-border-2: #182A5A;
+  --color-border-1: #0C1B46;
+
+
+  /* screens */
+  --breakpoint-xl: 1280px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-tablet: 850px;
+  --breakpoint-md: 768px;
+  --breakpoint-sm: 640px;
+  --breakpoint-smm: 680px;
+  --breakpoint-phone: 450px;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -25,7 +52,17 @@
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-bg-100);
+  color: var(--color-text-white);
+  font-family: var(--font-poppins);
+  overflow-y: auto;
+}
+
+.selector {
+    user-drag: none;
+    -webkit-user-drag: none;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
 }
