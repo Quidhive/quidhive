@@ -32,6 +32,7 @@
   --color-text-faded: #8C89B4;
   --color-border-2: #182A5A;
   --color-border-1: #0C1B46;
+  --color-primary-white: #EBEFFF;
 
 
   /* screens */
@@ -65,4 +66,42 @@ body {
     -moz-user-select: none;
     -webkit-user-select: none;
     -ms-user-select: none;
+}
+
+.scroller {
+  width: 100%;
+  overflow: hidden;
+}
+
+.scroller-track {
+  display: flex;
+  gap: 20px;
+  width: max-content;
+  
+}
+
+.scroll-left {
+  animation: scroll-left 20s linear infinite;
+}
+
+.scroll-right {
+  animation: scroll-right 20s linear infinite;
+}
+
+@keyframes scroll-left {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes scroll-right {
+  to {
+    transform: translateX(0);
+  }
+  from {
+    transform: translateX(-50%);
+  }
 }
