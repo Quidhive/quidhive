@@ -105,3 +105,7 @@ body {
     transform: translateX(-50%);
   }
 }
+
+.link {
+  cursor: pointer;
+}

@@ -1,4 +1,7 @@
-// 
+//
+
+import { FaqType } from "@/components/card/Faq";
+import { div } from "framer-motion/client";
 
 export const bfa = [
   {
@@ -38,3 +41,35 @@ export const howItWorks = [
     image: "/images/control.png",
   },
 ];
+
+export const testimonials = [
+  {
+    text: "Finally, a payment system that protects both sides. It’s smooth and secure.",
+    name: "Mary",
+    work: "Web3 Enthusiast",
+    image: "/avatars/authur.svg",
+  },
+  {
+    text: "Quidhive bridges trust between freelancers and clients, exactly what the decentralized world needs.",
+    name: "Mary",
+    work: "Web3 Enthusiast",
+    image: "/avatars/authur.svg",
+  },
+];
+
+export const upcoming = [
+  {
+    img: "/images/pollen-card.svg",
+    title: "Pollen Card",
+    text: "A physical and virtual card that lets you spend your QuidHive USDC balance anywhere, anytime. No conversion needed.",
+    textColor: "text-[#6EB2E5]",
+  },
+  {
+    img: "/images/mobile-app.svg",
+    title: "Quidhive Mobile App",
+    text: "The Hive doesn’t sleep and now, neither does your access. From invoices to escrow to release, every step is within reach.",
+    textColor: "text-[#01B574]",
+  },
+];
+
+

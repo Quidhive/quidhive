@@ -4,9 +4,21 @@ import Header from "@/components/header/Header";
 import Image from "next/image";
 import BFACard from "@/components/card/BFACard";
 import HowItWorks from "@/components/card/HowItWorks";
-import { bfa, howItWorks } from "@/utils/constants/constants.utils";
+import {
+  bfa,
+  howItWorks,
+  testimonials,
+  upcoming,
+} from "@/utils/constants/constants.utils";
 import { useState } from "react";
 import WorkScrollerCss from "@/components/animate/WorkerScrollCss";
+import Testimonial from "@/components/card/Testimonial";
+import Upcoming from "@/components/card/Upcoming";
+import Faq from "@/components/card/Faq";
+import { FAQ } from "@/utils/constants/faq.constant";
+import { RiTwitterXFill } from "react-icons/ri";
+import { BiLogoTelegram } from "react-icons/bi";
+import { SiFarcaster } from "react-icons/si";
 
 export default function Home() {
   const [selected, setSelected] = useState(0);
@@ -23,8 +35,9 @@ export default function Home() {
     { avatar: "/avatars/weiC.svg", text: "Authors & Public Speakers" },
     { avatar: "/avatars/raviP.svg", text: "Outsourcing Platforms" },
   ];
+  const [faq, setFaq] = useState(0);
   return (
-    <div className="p-6 px-20 relative">
+    <div className="relative">
       <Header />
       <main className="w-[1145px] m-auto mt-50">
         <section className="text-center font-bold text-6xl">
@@ -133,57 +146,88 @@ export default function Home() {
           <div className="bg-deep-green p-4 rounded-full text-primary-green font-bold text-2xl px-6">
             <p>💬 Testimonials</p>
           </div>
-
           <div className="flex w-full gap-5 mt-10">
-            <div className="w-1/2 text-lg">
-              <div className="bg-bg-elev-1 p-7 rounded-t-[9px] pb-10">
-                <p className=" text-text-white-alt">
-                  Finally, a payment system that protects both sides. It's
-                  smooth and secure.
-                </p>
-              </div>
-              <div className="px-5 py-3 bg-bg-50 rounded-b-[9px] flex items-center gap-4">
-                <img src="/avatars/authurT.svg" alt="" />
-                <p className="font-light text-text-faded-3">
-                  <span className="font-medium">Damilare</span>, Product
-                  Designer
-                </p>
-              </div>
-            </div>
-            <Testimonial
-              text={
-                "Quidhive bridges trust between freelancers and clients, exactly what the decentralized world needs."
-              }
-              name={"Mary"}
-              work={"Web3 Enthusiast"}
-              image={"/avatars/authur.svg"}
-            />
+            {testimonials.map((obj, index) => (
+              <Testimonial
+                key={index}
+                text={obj.text}
+                name={obj.name}
+                work={obj.work}
+                image={obj.image}
+              />
+            ))}
+          </div>
+        </section>
+        <section className="flex flex-col items-center justify-center mt-24">
+          <div className="bg-bg-elev-1 p-4 rounded-full text-text-blue font-bold text-2xl px-6">
+            <p>📍 We'll keep pollinating...</p>
+          </div>
+          <p className="mt-10">
+            From earning to spending, and everything in-between
+          </p>
+
+          <div className="w-full mt-14 flex gap-20">
+            {upcoming.map((obj, index) => (
+              <Upcoming
+                key={index}
+                img={obj.img}
+                title={obj.title}
+                text={obj.text}
+                textColor={obj.textColor}
+              />
+            ))}
+          </div>
+        </section>
+
+        <section className="mt-30 flex flex-col items-center justify-center">
+          <p className="text-text-white text-2xl font-bold">
+            Frequently asked questions
+          </p>
+
+          <div className="mt-14 w-[70%] m-auto">
+            {FAQ.map((obj, index) => (
+              <Faq
+                onClick={() => {
+                  if (faq === index) {
+                    setFaq(-1);
+                  } else {
+                    setFaq(index);
+                  }
+                }}
+                key={index}
+                quest={obj.quest}
+                ans={obj.ans}
+                show={faq === index}
+              />
+            ))}
           </div>
         </section>
       </main>
-    </div>
-  );
-}
-
-type TestimonialType = {
-  text: string;
-  name: string;
-  work: string;
-  image: string;
-};
-
-function Testimonial({ text, name, work, image }: TestimonialType) {
-  return (
-    <div className="w-1/2 text-lg">
-      <div className="bg-bg-elev-1 p-7 rounded-t-[9px] pb-10">
-        <p className=" text-text-white-alt">{text}</p>
-      </div>
-      <div className="px-5 py-3 bg-bg-50 rounded-b-[9px] flex items-center gap-4">
-        <img src={image} alt="" />
-        <p className="font-light text-text-faded-3">
-          <span className="font-medium">{name}</span>, {work}
-        </p>
-      </div>
+      <footer className="w-full bg-bg-elev-2 py-10 mt-20">
+        <div className="w-[80%] m-auto flex justify-between items-end">
+          <div>
+            <img src="/logos/logo.svg" alt="logo" />
+            <p className="text-text-faded-3 font-semibold text-lg mt-3">
+              Payment Links, Onchain Escrow
+            </p>
+          </div>
+          <div className="flex items-center gap-3">
+            <div className="bg-bg-elev-1 p-2 rounded-full">
+              <RiTwitterXFill />
+            </div>
+            <div className="bg-bg-elev-1 p-2 rounded-full">
+              <BiLogoTelegram />
+            </div>
+            <div className="bg-bg-elev-1 p-2 rounded-full">
+              <img
+                src="/icons/farcaster.svg"
+                className="h-[15px]"
+                alt="farcaster"
+              />
+            </div>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }
