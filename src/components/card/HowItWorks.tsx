@@ -17,7 +17,7 @@ function HowItWorks({ img, title, text, step, active, onClick }: HIWType) {
       onClick={onClick}
       className={`${
         active ? "bg-bg-75 border-border-1 border-2" : ""
-      }  p-4 px-6 flex w-full rounded-lg items-center gap-4 button`}
+      }  p-4 px-6 flex w-full rounded-lg items-center gap-4 link`}
     >
       <div className="bg-bg-elev-2 p-3 rounded-full">
         <img src={img} className="object-cover" alt={title} />

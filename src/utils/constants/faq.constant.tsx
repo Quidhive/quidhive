@@ -80,9 +80,14 @@ export const FAQ: FaqType[] = [
     quest: "What’s coming next?",
     ans: (
       <div>
-        We’ll keep expanding, bringing you Pollen Card for spending your USDC
-        anywhere, BloomUSD for receiving ACH transfers, and the Quidhive mobile
-        app for on-the-go control.
+        We’ll keep expanding, bringing you{" "}
+        <span className="font-semibold">Pollen Card</span> for spending your
+        USDC anywhere,{" "}
+        <span className="font-semibold">
+          BloomUSD for receiving ACH transfers
+        </span>
+        , and the <span className="font-semibold">Quidhive mobile app</span> for
+        on-the-go control.
       </div>
     ),
     show: false,

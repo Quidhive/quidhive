@@ -45,8 +45,8 @@ export const howItWorks = [
 export const testimonials = [
   {
     text: "Finally, a payment system that protects both sides. It’s smooth and secure.",
-    name: "Mary",
-    work: "Web3 Enthusiast",
+    name: "Damilare",
+    work: "Product Designer",
     image: "/avatars/authur.svg",
   },
   {
@@ -71,5 +71,24 @@ export const upcoming = [
     textColor: "text-[#01B574]",
   },
 ];
+
+export const products = [
+  {
+    img: "/icons/hive.svg",
+    title: "Hive",
+    text: "Create secure payment links, get paid in USDC, and hold funds safely in Hive until release. Trust, transparency, and control in every transaction."
+  },
+  {
+    img: "/icons/swap.svg",
+    title: "Swap",
+    text: "Instantly convert your earnings or deposited USDC to local fiat. Built for Africans who want fast, seamless conversion from onchain to real life."
+  },
+  {
+    img: "/icons/pollen-card.svg",
+    title: "Pollen Card",
+    text: "Spend your USDC balance anywhere, anytime with Pollen physical and virtual cards. No conversion, no delay — just freedom to use your crypto.",
+    coming: true
+  },
+]
 
 

@@ -18,7 +18,6 @@ import Faq from "@/components/card/Faq";
 import { FAQ } from "@/utils/constants/faq.constant";
 import { RiTwitterXFill } from "react-icons/ri";
 import { BiLogoTelegram } from "react-icons/bi";
-import { SiFarcaster } from "react-icons/si";
 
 export default function Home() {
   const [selected, setSelected] = useState(0);
@@ -50,7 +49,7 @@ export default function Home() {
           </p>
         </section>
         {/* <img src="/payment-link-pay-with-card.png" alt="" /> */}
-        <section className={`relative h-[456px] w-[830px] m-auto mt-14`}>
+        <section className={`relative h-[456px] w-[830px] m-auto mt-20`}>
           <Image
             src="/images/payment-link-pay-with-card.png"
             alt="create payment link and clients pay with card or stable coin"
@@ -81,7 +80,7 @@ export default function Home() {
           <div className="bg-bg-elev-1 p-4 rounded-full text-text-blue font-bold text-2xl px-6">
             <p>🤔 We need to ask</p>
           </div>
-          <div className="w-full mt-14 flex items-end justify-between gap-10">
+          <div className="w-full mt-18 flex items-end justify-between gap-10">
             <div className="w-5/12">
               <p className="text-2xl text-text-faded-3 font-semibold">
                 How does Quidhive work?
@@ -114,22 +113,22 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="mt-14 bg-bg-75 px-10 py-10 rounded-4xl flex flex-col items-center w-full">
+        <section className="mt-30 bg-bg-75 px-10 py-8 rounded-4xl flex flex-col items-center w-full">
           <img src="/icons/agree.svg" alt="" />
           <div className="w-full">
-            <p className="text-text-faded-2 text-xl font-semibold text-center">
+            <p className="text-text-faded-2 text-xl font-semibold text-center mt-4">
               Built for Freelancers,{" "}
             </p>
-            <div className="w-full m-auto mt-6">
+            <div className="w-full m-auto mt-7">
               {/* <WorkScroller /> */}
               <WorkScrollerCss items={items1} className="scroll-left" />
             </div>
           </div>
-          <div className="w-full mt-10">
+          <div className="w-full mt-14">
             <p className="text-text-faded-2 text-xl font-semibold text-center">
               Loved by Clients,
             </p>
-            <div className="w-full m-auto mt-6">
+            <div className="w-full m-auto mt-7">
               {/* <WorkScroller /> */}
               <WorkScrollerCss items={items2} className="scroll-right" />
             </div>
@@ -142,11 +141,11 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="flex flex-col items-center w-full justify-center mt-14">
+        <section className="flex flex-col items-center justify-center mt-20 w-[90%] m-auto">
           <div className="bg-deep-green p-4 rounded-full text-primary-green font-bold text-2xl px-6">
             <p>💬 Testimonials</p>
           </div>
-          <div className="flex w-full gap-5 mt-10">
+          <div className="flex w-full gap-5 mt-14">
             {testimonials.map((obj, index) => (
               <Testimonial
                 key={index}
@@ -158,15 +157,14 @@ export default function Home() {
             ))}
           </div>
         </section>
-        <section className="flex flex-col items-center justify-center mt-24">
+        <section className="flex flex-col items-center justify-center mt-38 w-[90%] m-auto">
           <div className="bg-bg-elev-1 p-4 rounded-full text-text-blue font-bold text-2xl px-6">
             <p>📍 We'll keep pollinating...</p>
           </div>
-          <p className="mt-10">
+          <p className="mt-7 text-text-faded-3 text-sm">
             From earning to spending, and everything in-between
           </p>
-
-          <div className="w-full mt-14 flex gap-20">
+          <div className="w-full mt-14 flex gap-14">
             {upcoming.map((obj, index) => (
               <Upcoming
                 key={index}
@@ -179,12 +177,12 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="mt-30 flex flex-col items-center justify-center">
+        <section className="mt-34 flex flex-col items-center justify-center">
           <p className="text-text-white text-2xl font-bold">
             Frequently asked questions
           </p>
 
-          <div className="mt-14 w-[70%] m-auto">
+          <div className="mt-10 w-[70%] m-auto">
             {FAQ.map((obj, index) => (
               <Faq
                 onClick={() => {

@@ -15,7 +15,7 @@ function Faq({ quest, ans, show, onClick }: FaqType) {
   return (
     <div
       onClick={onClick}
-      className="bg-bg-75 p-6 px-8 rounded-[9px] link mt-5"
+      className="bg-bg-75 p-6 px-8 rounded-[9px] link mt-6"
     >
       <div className="flex items-center text-text-faded-3 justify-between">
         <p className="text-lg font-bold">{quest}</p>
