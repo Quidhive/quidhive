@@ -10,7 +10,7 @@ type BFRType = {
 
 function BFACard({ img, title, text }: BFRType) {
   return (
-    <div className="bg-bg-50 w-1/3 p-7 flex flex-col items-start rounded-lg">
+    <div className="bg-bg-50 sm:w-1/3 phone:w-[400px] m-auto px-7 phone:py-7 py-4 flex flex-col items-start rounded-lg">
       <div className="bg-bg-75 p-2 rounded-xl">
         <img src={img} alt={title} />
       </div>

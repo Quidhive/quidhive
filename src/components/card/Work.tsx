@@ -9,8 +9,8 @@ type WorkType = {
 
 function Work({ avatar, text }: WorkType) {
   return (
-    <div className="flex grow items-center gap-3 bg-bg-elev-1 py-2 px-3 rounded-md border border-border-2">
-      <img src={avatar} alt="" />
+    <div className="flex items-center phone:gap-3 gap-2 bg-bg-elev-1 py-2 phone:px-3 px-2 rounded-md border border-border-2">
+      <img src={avatar} className="phone:h-auto h-5" alt="" />
       <p className="text-sm text-primary-white">{text}</p>
     </div>
   );
