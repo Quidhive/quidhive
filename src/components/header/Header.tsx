@@ -2,55 +2,114 @@
 "use client";
 import React, { useState } from "react";
 import QHLogo from "../logo/QHLogo";
-import { MdKeyboardArrowDown } from "react-icons/md";
+import { MdClose, MdKeyboardArrowDown, MdOutlineMenu } from "react-icons/md";
 import Button from "../button/QHButton";
 import { products } from "@/utils/constants/constants.utils";
 import { AnimatePresence, motion } from "framer-motion";
+import Dismissable from "../Dismissable";
 
 function Header() {
   const [hover, setHover] = useState(false);
+  const [show, setShow] = useState(false);
   return (
-    <div
-      className={`${
-        hover ? " rounded-3xl" : " rounded-full"
-      } fixed w-[1145px] top-5 z-20 left-1/2 -translate-x-1/2 p-2 bg-bg-elev-2 px-10 py-4 transition`}
-    >
-      <div className="flex items-center w-full justify-between">
-        <QHLogo />
-        <div className="flex items-center gap-7">
-          <div
-            onMouseEnter={() => setHover(true)}
-            onMouseLeave={() => setHover(false)}
-            className={`flex items-center text-sm text-text-white-alt hover:text-text-blue font-medium link`}
-          >
-            <p>Products</p>
-            <MdKeyboardArrowDown size={20} />
+    <>
+      <Dismissable onClickOutside={() => setShow(false)}>
+        <div
+          className={`w-full bg-bg-elev-2 h-[301px] fixed left-0 z-30 p-3 px-5 rounded-xl ${
+            show ? "top-0" : "-top-80"
+          } transitioncss md:hidden`}
+        >
+          <div className="flex items-center justify-between">
+            <QHLogo />
+            <div className="gap-2 flex items-center">
+              <Button size="small" btnType="secondary">
+                <div>Login</div>
+              </Button>
+              <Button size="small">
+                <div>Sign up</div>
+              </Button>
+              <div
+                onClick={() => setShow(false)}
+                className="text-text-white-alt link"
+              >
+                <MdClose size={20} />
+              </div>
+            </div>
           </div>
-          <div className="flex items-center text-sm text-text-white-alt font-medium">
-            <p>Resources</p>
-            <MdKeyboardArrowDown size={20} />
+          <div className="mt-5">
+            <div>
+              <p className="text-text-white-alt font-medium">Products</p>
+              <div className="font-semibold mt-4">
+                <p>Hive</p>
+                <p className="mt-3">Swap</p>
+                <div className="flex items-center mt-3 gap-3">
+                  <p className="">Pollen Card</p>
+                  <p className="text-xs text-button-green bg-bg-25 px-2 rounded-full">
+                    coming soon
+                  </p>
+                </div>
+              </div>
+              <p className="text-text-white-alt font-medium mt-8">Resources</p>
+            </div>
           </div>
         </div>
-        <div className="gap-2 flex">
-          <Button size="big" btnType="secondary">
-            <div>Login</div>
-          </Button>
-          <Button>
-            <div>Sign up</div>
-          </Button>
-        </div>
-      </div>
+      </Dismissable>
+
       <div
-        // onMouseEnter={() => setHover(true)}
-        // onMouseLeave={() => setHover(false)}
-        className={`${hover && "pt-6"} flex gap-7`}
+        className={`${
+          hover ? " rounded-3xl" : " rounded-full"
+        } fixed xl:w-[1145px] phone:w-[90%] w-[95%] top-5 z-20 left-1/2 -translate-x-1/2 p-2 bg-bg-elev-2 px-10 py-4 transition`}
       >
-        <ProductsDropdown show={hover} />
+        <div className="flex items-center w-full justify-between">
+          <QHLogo />
+          <div className="md:flex items-center gap-7 hidden">
+            <div
+              onMouseEnter={() => setHover(true)}
+              onMouseLeave={() => setHover(false)}
+              className={`flex items-center text-sm text-text-white-alt hover:text-text-blue font-medium link`}
+            >
+              <p>Products</p>
+              <MdKeyboardArrowDown size={20} />
+            </div>
+            <div className="flex items-center text-sm text-text-white-alt font-medium">
+              <p>Resources</p>
+              <MdKeyboardArrowDown size={20} />
+            </div>
+          </div>
+          <div className="gap-2 md:flex hidden">
+            <Button size="big" btnType="secondary">
+              <div>Login</div>
+            </Button>
+            <Button>
+              <div>Sign up</div>
+            </Button>
+          </div>
+          <div className="gap-2 md:hidden flex items-center">
+            <Button size="small" btnType="secondary">
+              <div>Login</div>
+            </Button>
+            <Button size="small">
+              <div>Sign up</div>
+            </Button>
+            <div
+              onClick={() => setShow(true)}
+              className="text-text-white-alt link"
+            >
+              <MdOutlineMenu size={20} />
+            </div>
+          </div>
+        </div>
+        <div
+          // onMouseEnter={() => setHover(true)}
+          // onMouseLeave={() => setHover(false)}
+          className={`${hover && "pt-6"} flex gap-7`}
+        >
+          <ProductsDropdown show={hover} />
+        </div>
       </div>
-    </div>
+    </>
   );
 }
-
 export default Header;
 
 type ProductsType = {

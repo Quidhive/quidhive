@@ -110,3 +110,7 @@ body {
 .link {
   cursor: pointer;
 }
+
+.transitioncss {
+  transition: all 1s;
+}

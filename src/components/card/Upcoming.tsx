@@ -11,9 +11,9 @@ type UpcomingType = {
 
 function Upcoming({ img, title, text, textColor }: UpcomingType) {
   return (
-    <div className="bg-bg-50 px-10 w-1/2 flex flex-col items-center pb-6 rounded-t-[10px]">
+    <div className="bg-bg-50 px-10 sm:w-1/2 phone:w-[400px] m-auto flex flex-col items-center pb-6 rounded-t-[10px]">
       <img src={img} className="w-[336px]" alt={title} />
-      <div className="w-[336px] m-auto mt-14">
+      <div className="lg:w-[336px] m-auto mt-14">
         <div className="flex items-center gap-3">
           <p className="font-semibold text-lg text-text-faded-3">{title}</p>
           <p
