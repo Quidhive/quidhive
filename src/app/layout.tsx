@@ -18,25 +18,26 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Quidhive - Payment Link for freelancer",
-  description: "Request fund from your client and get USDC",
+  title: "Quidhive - Payment Link for freelancer with Onchain escrow (Hive)",
+  description:
+    "Easily request payments from your clients and receive USDC—the most trusted and regulation-compliant stablecoin—directly on Base, a fast, low-cost, and scalable blockchain network. This gives you quick access to secure digital dollars without delays, high fees, or cross-border complications.",
   alternates: {
     canonical: "https://quidhive.com",
   },
-  // openGraph: {
-  //   title: "Quidhive - Payment Link for freelancer",
-  //   description: "Request fund from your client and get USDC",
-  //   url: "https://quidhive.com",
-  //   siteName: "Quidhive",
-  //   images: [
-  //     {
-  //       url: "https://app.swifo.co/opengraph/opengraph.png",
-  //       alt: "Swifo – Making Freelancers lives eaiser",
-  //     },
-  //   ],
-  //   locale: "en_NG",
-  //   type: "website",
-  // },
+  openGraph: {
+    title: "Quidhive - Payment Link for freelancer",
+    description: "Request fund from your client and get USDC",
+    url: "https://quidhive.com",
+    siteName: "Quidhive",
+    images: [
+      {
+        url: "https://quidhive.com/images/og.png",
+        alt: "Quidhive - Payment Link for freelancer with Onchain escrow (Hive)",
+      },
+    ],
+    locale: "en_NG",
+    type: "website",
+  },
 };
 
 export default function RootLayout({

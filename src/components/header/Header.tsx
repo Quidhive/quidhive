@@ -57,69 +57,70 @@ function Header({ func }: { func: () => void }) {
           </div>
         </div>
       </Dismissable>
-
-      <div
-        className={`${
-          hover ? " rounded-3xl" : " rounded-full"
-        } fixed xl:w-[1145px] phone:w-[90%] w-[95%] top-5 z-20 left-1/2 -translate-x-1/2 p-2 bg-bg-elev-2 px-10 py-4 transition`}
-      >
-        <div className="flex items-center w-full justify-between">
-          <QHLogo />
-          <div className="md:flex items-center gap-7 hidden">
-            <div
-              onMouseEnter={() => setHover(true)}
-              onMouseLeave={() => setHover(false)}
-              className={`flex items-center text-sm text-text-white-alt hover:text-text-blue font-medium link`}
-            >
-              <p>Products</p>
-              <MdKeyboardArrowDown size={20} />
+      <div className="bg-bg-100/80 w-full fixed top-0 left-0 z-50">
+        <div
+          className={`${
+            hover ? " rounded-3xl pb-4" : " rounded-full"
+          } xl:w-[1145px] phone:w-[90%] w-[95%] m-auto mt-8 bg-bg-elev-2 px-10 transition`}
+        >
+          <div className="flex items-center w-full justify-between">
+            <QHLogo />
+            <div className="md:flex items-center gap-7 hidden">
+              <div
+                onMouseEnter={() => setHover(true)}
+                onMouseLeave={() => setHover(false)}
+                className={`flex items-center text-sm text-text-white-alt hover:text-text-blue font-medium link py-7`}
+              >
+                <p>Products</p>
+                <MdKeyboardArrowDown size={20} />
+              </div>
+              <div className="flex items-center text-sm text-text-white-alt font-medium">
+                <p>Resources</p>
+                <MdKeyboardArrowDown size={20} />
+              </div>
             </div>
-            <div className="flex items-center text-sm text-text-white-alt font-medium">
-              <p>Resources</p>
-              <MdKeyboardArrowDown size={20} />
-            </div>
-          </div>
-          {/* <div className="gap-2 md:flex hidden"> */}
-          <div className="gap-2 hidden">
-            <Button size="big" btnType="secondary">
-              <div>Login</div>
-            </Button>
-            <Button>
-              <div>Sign up</div>
-            </Button>
-          </div>
-
-          {/* <div className="gap-2 md:hidden flex items-center"> */}
-          <div className="gap-2 flex items-center">
-            {/* remove the div  */}
-            <div className="hidden">
-              <Button size="small" btnType="secondary">
+            {/* <div className="gap-2 md:flex hidden"> */}
+            <div className="gap-2 hidden">
+              <Button size="big" btnType="secondary">
                 <div>Login</div>
               </Button>
-              <Button size="small">
+              <Button>
                 <div>Sign up</div>
               </Button>
             </div>
-            {/* remove this too  */}
-            <div>
-              <Button onClick={func}>
-                <div>Join waitlist</div>
-              </Button>
-            </div>
-            <div
-              onClick={() => setShow(true)}
-              className="text-text-white-alt link sm:hidden"
-            >
-              <MdOutlineMenu size={20} />
+
+            {/* <div className="gap-2 md:hidden flex items-center"> */}
+            <div className="gap-2 flex items-center">
+              {/* remove the div  */}
+              <div className="hidden">
+                <Button size="small" btnType="secondary">
+                  <div>Login</div>
+                </Button>
+                <Button size="small">
+                  <div>Sign up</div>
+                </Button>
+              </div>
+              {/* remove this too  */}
+              <div>
+                <Button onClick={func}>
+                  <div>Join waitlist</div>
+                </Button>
+              </div>
+              <div
+                onClick={() => setShow(true)}
+                className="text-text-white-alt link sm:hidden"
+              >
+                <MdOutlineMenu size={20} />
+              </div>
             </div>
           </div>
-        </div>
-        <div
-          // onMouseEnter={() => setHover(true)}
-          // onMouseLeave={() => setHover(false)}
-          className={`${hover && "pt-6"} flex gap-7`}
-        >
-          <ProductsDropdown show={hover} />
+          <div
+            onMouseEnter={() => setHover(true)}
+            onMouseLeave={() => setHover(false)}
+            className={`${hover && "pt-6"} flex gap-7`}
+          >
+            <ProductsDropdown show={hover} />
+          </div>
         </div>
       </div>
     </>

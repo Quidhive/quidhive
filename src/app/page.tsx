@@ -24,6 +24,7 @@ import Button from "@/components/button/QHButton";
 import { useForm } from "react-hook-form";
 import { PostRequest } from "@/utils/api.helper";
 import { toast } from "sonner";
+import Link from "next/link";
 
 export default function Home() {
   const [selected, setSelected] = useState(0);
@@ -78,7 +79,7 @@ export default function Home() {
     <div className="relative">
       <Header func={handleScroll} />
       <main className="xl:w-[1145px] sm:w-[90%] m-auto sm:mt-50 mt-38">
-        <section className="bg-[url('/images/bg-blue.svg')] text-center font-bold tablet:text-6xl phone:text-5xl text-3xl">
+        <section className="bg-[url('/images/bg-blue.png')] text-center font-bold tablet:text-6xl phone:text-5xl text-3xl">
           <h1 className="text-text-white-alt">Payment Links for</h1>
           <h2 className="mt-2 text-text-blue">Freelancers</h2>
           <p className="text-text-faded-2 text-base sm:w-[492px] w-[85%] m-auto font-normal mt-8">
@@ -203,7 +204,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="bg-[url('/images/bg-blue.svg')] flex flex-col items-center justify-center am:mt-20 mt-18 w-[95%] m-auto">
+        <section className="bg-[url('/images/bg-blue.png')] flex flex-col items-center justify-center am:mt-20 mt-18 w-[95%] m-auto">
           <div className="bg-deep-green p-4 rounded-full text-primary-green font-bold sm:text-2xl phone:text-xl text-lg px-6">
             <p>💬 Testimonials</p>
           </div>
@@ -310,9 +311,13 @@ export default function Home() {
               Payment Links, Onchain Escrow
             </p>
             <div className="flex items-center gap-3">
-              <div className="bg-bg-elev-1 p-2 rounded-full">
+              <Link
+                href={"https://x.com/quidhive?s=11"}
+                target="_blank"
+                className="bg-bg-elev-1 p-2 rounded-full"
+              >
                 <RiTwitterXFill />
-              </div>
+              </Link>
               <div className="bg-bg-elev-1 p-2 rounded-full">
                 <BiLogoTelegram />
               </div>
