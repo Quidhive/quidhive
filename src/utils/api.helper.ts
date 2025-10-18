@@ -5,8 +5,7 @@ import axios from "axios";
 
 // import Cookies from 'js-cookie';
 
-// const baseUrl = "https://waitlist.quidhive.com"
-const baseUrl = "http://127.0.0.1:7014"
+const baseUrl = "https://waitlist.quidhive.com"
 
 const checkUrl = (url: string) => {
   if (url.startsWith('/')) {
