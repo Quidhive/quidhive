@@ -8,7 +8,7 @@ import { products } from "@/utils/constants/constants.utils";
 import { AnimatePresence, motion } from "framer-motion";
 import Dismissable from "../Dismissable";
 
-function Header() {
+function Header({ func }: { func: () => void }) {
   const [hover, setHover] = useState(false);
   const [show, setShow] = useState(false);
   return (
@@ -22,12 +22,15 @@ function Header() {
           <div className="flex items-center justify-between">
             <QHLogo />
             <div className="gap-2 flex items-center">
-              <Button size="small" btnType="secondary">
-                <div>Login</div>
-              </Button>
-              <Button size="small">
-                <div>Sign up</div>
-              </Button>
+              <div className="hidden">
+                <Button size="small" btnType="secondary">
+                  <div>Login</div>
+                </Button>
+                <Button size="small">
+                  <div>Sign up</div>
+                </Button>
+              </div>
+
               <div
                 onClick={() => setShow(false)}
                 className="text-text-white-alt link"
@@ -76,7 +79,8 @@ function Header() {
               <MdKeyboardArrowDown size={20} />
             </div>
           </div>
-          <div className="gap-2 md:flex hidden">
+          {/* <div className="gap-2 md:flex hidden"> */}
+          <div className="gap-2 hidden">
             <Button size="big" btnType="secondary">
               <div>Login</div>
             </Button>
@@ -84,16 +88,27 @@ function Header() {
               <div>Sign up</div>
             </Button>
           </div>
-          <div className="gap-2 md:hidden flex items-center">
-            <Button size="small" btnType="secondary">
-              <div>Login</div>
-            </Button>
-            <Button size="small">
-              <div>Sign up</div>
-            </Button>
+
+          {/* <div className="gap-2 md:hidden flex items-center"> */}
+          <div className="gap-2 flex items-center">
+            {/* remove the div  */}
+            <div className="hidden">
+              <Button size="small" btnType="secondary">
+                <div>Login</div>
+              </Button>
+              <Button size="small">
+                <div>Sign up</div>
+              </Button>
+            </div>
+            {/* remove this too  */}
+            <div>
+              <Button onClick={func}>
+                <div>Join waitlist</div>
+              </Button>
+            </div>
             <div
               onClick={() => setShow(true)}
-              className="text-text-white-alt link"
+              className="text-text-white-alt link sm:hidden"
             >
               <MdOutlineMenu size={20} />
             </div>

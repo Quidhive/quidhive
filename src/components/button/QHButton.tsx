@@ -41,7 +41,7 @@ export default function Button({
 
   return (
     <button
-      className={`${className} ${sizeS} ${typeS} ${sentimentS} hover_btn btn font-semibold rounded-full disabled:opacity-50 disabled:cursor-not-allowed`}
+      className={`${className} ${sizeS} ${typeS} ${sentimentS} hover_btn link font-semibold rounded-full disabled:opacity-50 disabled:cursor-not-allowed`}
       {...rest}
       disabled={loading || rest.disabled}
     >

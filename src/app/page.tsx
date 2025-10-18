@@ -10,7 +10,7 @@ import {
   testimonials,
   upcoming,
 } from "@/utils/constants/constants.utils";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import WorkScrollerCss from "@/components/animate/WorkerScrollCss";
 import Testimonial from "@/components/card/Testimonial";
 import Upcoming from "@/components/card/Upcoming";
@@ -19,6 +19,11 @@ import { FAQ } from "@/utils/constants/faq.constant";
 import { RiTwitterXFill } from "react-icons/ri";
 import { BiLogoTelegram } from "react-icons/bi";
 import Work from "@/components/card/Work";
+import QHInput from "@/components/input/QHInput";
+import Button from "@/components/button/QHButton";
+import { useForm } from "react-hook-form";
+import { PostRequest } from "@/utils/api.helper";
+import { toast } from "sonner";
 
 export default function Home() {
   const [selected, setSelected] = useState(0);
@@ -43,12 +48,37 @@ export default function Home() {
     { avatar: "/avatars/ravi.svg", text: "Recruiters" },
     { avatar: "/avatars/weiC.svg", text: "Others" },
   ];
-  const [faq, setFaq] = useState(0);
+  const [faq, setFaq] = useState(-1);
+  const [loading, setLoading] = useState(false);
+  const {
+    handleSubmit,
+    formState: { errors },
+    register,
+    reset,
+  } = useForm<{ email: string }>({ mode: "all" });
+
+  const targetRef = useRef<HTMLDivElement | null>(null);
+  const handleScroll = () => {
+    targetRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
+  const submit = async (data: { email: string }) => {
+    setLoading(true);
+    const response = await PostRequest("/waitlist", data);
+    console.log(response);
+    if (response.status === 201) {
+      toast.success(response.data.message, { position: "top-center" });
+      reset();
+    } else {
+      toast.error(response.data.error, { position: "top-center" });
+    }
+    setLoading(false);
+  };
+
   return (
     <div className="relative">
-      <Header />
+      <Header func={handleScroll} />
       <main className="xl:w-[1145px] sm:w-[90%] m-auto sm:mt-50 mt-38">
-        <section className="text-center font-bold tablet:text-6xl phone:text-5xl text-3xl">
+        <section className="bg-[url('/images/bg-blue.svg')] text-center font-bold tablet:text-6xl phone:text-5xl text-3xl">
           <h1 className="text-text-white-alt">Payment Links for</h1>
           <h2 className="mt-2 text-text-blue">Freelancers</h2>
           <p className="text-text-faded-2 text-base sm:w-[492px] w-[85%] m-auto font-normal mt-8">
@@ -56,21 +86,22 @@ export default function Home() {
             <span className="font-bold">pay by card or crypto</span>, with your
             funds securely held in escrow (Hive)
           </p>
-        </section>
-        <img
-          src="/images/payment-link-mobile.png"
-          className="mt-20 w-[100%] h-full md:h-[456px] tablet:w-[830px] tablet:hidden block object-cover"
-          alt=""
-        />
-        <section
-          className={`relative w-[100%] h-full md:h-[456px] tablet:w-[830px] tablet:block hidden m-auto mt-20`}
-        >
-          <Image
-            src="/images/payment-link-pay-with-card.png"
+
+          <img
+            src="/images/payment-link-mobile.png"
+            className="mt-20 w-[100%] h-full md:h-[456px] tablet:w-[830px] tablet:hidden block object-cover"
             alt="create payment link and clients pay with card or stable coin"
-            fill
-            className="object-cover rounded-lg selector"
           />
+          <div
+            className={`relative w-[100%] h-full md:h-[456px] tablet:w-[830px] tablet:block hidden m-auto mt-20`}
+          >
+            <Image
+              src="/images/payment-link-pay-with-card.png"
+              alt="create payment link and clients pay with card or stable coin"
+              fill
+              className="object-cover rounded-lg selector"
+            />
+          </div>
         </section>
         <section className="flex flex-col items-center sm:mt-24 mt-12 sm:border-b border-border-2 sm:pb-20 sm:w-full w-[95%] m-auto">
           <div className="bg-deep-green p-4 rounded-full text-primary-green font-bold sm:text-2xl phone:text-xl text-lg px-6">
@@ -172,7 +203,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="flex flex-col items-center justify-center am:mt-20 mt-18 w-[95%] m-auto">
+        <section className="bg-[url('/images/bg-blue.svg')] flex flex-col items-center justify-center am:mt-20 mt-18 w-[95%] m-auto">
           <div className="bg-deep-green p-4 rounded-full text-primary-green font-bold sm:text-2xl phone:text-xl text-lg px-6">
             <p>💬 Testimonials</p>
           </div>
@@ -229,6 +260,45 @@ export default function Home() {
                 show={faq === index}
               />
             ))}
+          </div>
+        </section>
+
+        <section className="sm:mt-30 mt-16">
+          <p className="text-text-white text-center sm:text-2xl phone:text-xl text-lg font-bold">
+            Where the Buzz Begins
+          </p>
+          <div
+            ref={targetRef}
+            className="bg-bg-75 m-auto sm:p-10 p-5 sm:mt-10 mt-5 sm:w-full w-[95%] sm:rounded-4xl rounded-2xl flex flex-col items-center sm:pb-16"
+          >
+            <p className="text-text-faded-2 sm:w-130 text-center sm:text-base text-sm">
+              Join the Hive early and unlock a new era of trust, transparency,
+              and freedom for freelancers.
+            </p>
+            <form
+              onSubmit={handleSubmit((data) => submit(data))}
+              className="sm:w-110 w-full sm:mt-12 mt-6"
+            >
+              <QHInput
+                label={""}
+                name={"email"}
+                placeholder="email address"
+                register={register}
+                errors={errors}
+                required={true}
+                pattern={{
+                  value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
+                  message: "Email address not valid",
+                }}
+              />
+              <Button
+                loading={loading}
+                size="small"
+                className="w-full sm:mt-6 mt-3"
+              >
+                <div>Join waitlist</div>
+              </Button>
+            </form>
           </div>
         </section>
       </main>
