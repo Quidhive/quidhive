@@ -34,6 +34,8 @@ export const metadata: Metadata = {
       {
         url: "https://quidhive.com/opengraph/opengraph.png",
         alt: "Quidhive - Payment Link for freelancer with Onchain escrow (Hive)",
+        width: 1200,
+        height: 630,
       },
     ],
     locale: "en_NG",
