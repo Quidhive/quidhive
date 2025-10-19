@@ -25,13 +25,14 @@ export const metadata: Metadata = {
     canonical: "https://quidhive.com",
   },
   openGraph: {
-    title: "Quidhive - Payment Link for freelancer",
-    description: "Request fund from your client and get USDC",
+    title: "Quidhive - Payment Link for freelancer with Onchain escrow (Hive)",
+    description:
+      "Easily request payments from your clients and receive USDC—the most trusted and regulation-compliant stablecoin—directly on Base, a fast, low-cost, and scalable blockchain network. This gives you quick access to secure digital dollars without delays, high fees, or cross-border complications.",
     url: "https://quidhive.com",
     siteName: "Quidhive",
     images: [
       {
-        url: "https://quidhive.com/images/og.png",
+        url: "https://quidhive.com/opengraph.png",
         alt: "Quidhive - Payment Link for freelancer with Onchain escrow (Hive)",
       },
     ],
