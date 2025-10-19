@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     siteName: "Quidhive",
     images: [
       {
-        url: "https://quidhive.com/opengraph/opengraph.png",
+        url: "https://res.cloudinary.com/dnmvjjnbl/image/upload/v1760833465/og_qpbq6l.png",
         alt: "Quidhive - Payment Link for freelancer with Onchain escrow (Hive)",
         width: 1200,
         height: 630,
