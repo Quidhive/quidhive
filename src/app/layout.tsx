@@ -32,14 +32,25 @@ export const metadata: Metadata = {
     siteName: "Quidhive",
     images: [
       {
+        url: "https://res.cloudinary.com/dnmvjjnbl/image/upload/v1760833465/opengraphh_r1cek7.png",
+        alt: "Quidhive - Payment Link for freelancer with Onchain escrow (Hive)",
+      },
+    ],
+  },
+  twitter: {
+    title: "Quidhive - Payment Link for freelancers with Onchain escrow (Hive)",
+    description:
+      "Easily request payments from your clients and receive USDC—the most trusted and regulation-compliant stablecoin—directly on Base, a fast, low-cost, and scalable blockchain network. This gives you quick access to secure digital dollars without delays, high fees, or cross-border complications.",
+    card: "summary_large_image",
+    images: [
+      {
         url: "https://res.cloudinary.com/dnmvjjnbl/image/upload/v1760833465/og_qpbq6l.png",
         alt: "Quidhive - Payment Link for freelancer with Onchain escrow (Hive)",
         width: 1200,
         height: 630,
+        type: "image/webp",
       },
     ],
-    locale: "en_NG",
-    type: "website",
   },
 };
 

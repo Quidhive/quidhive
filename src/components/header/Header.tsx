@@ -60,8 +60,8 @@ function Header({ func }: { func: () => void }) {
       <div className="bg-bg-100/80 w-full fixed top-0 left-0 z-50">
         <div
           className={`${
-            hover ? " rounded-3xl pb-4" : " rounded-full"
-          } xl:w-[1145px] phone:w-[90%] w-[95%] m-auto mt-8 bg-bg-elev-2 px-10 transition`}
+            hover ? " rounded-3xl md:pb-4" : " rounded-full"
+          } xl:w-[1145px] phone:w-[90%] w-[95%] m-auto mt-8 bg-bg-elev-2 px-10 transition md:py-0 py-3`}
         >
           <div className="flex items-center w-full justify-between">
             <QHLogo />
