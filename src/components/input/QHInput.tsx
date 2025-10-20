@@ -139,7 +139,7 @@ function QHInput(props: QHInputType) {
           maxLength={maxLength}
           minLength={minLength}
           autoComplete="off"
-          className={`w-full phone:text-base text-sm border-none bg-transparent outline-none placeholder:font-semibold placeholder:text-[#ffffff24] focus:border-[3px] px-3 ${inputClass}`}
+          className={`w-full border-none bg-transparent outline-none placeholder:font-semibold placeholder:text-[#ffffff24] focus:border-[3px] px-3 ${inputClass}`}
           {...(register
             ? register!(name, {
                 required: required
