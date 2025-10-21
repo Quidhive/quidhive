@@ -15,7 +15,7 @@ function Header({ func }: { func: () => void }) {
     <>
       <Dismissable onClickOutside={() => setShow(false)}>
         <div
-          className={`w-full bg-bg-elev-2 h-[301px] fixed left-0 z-30 p-3 px-5 rounded-xl ${
+          className={`w-full bg-bg-elev-2 h-[301px] fixed left-0 z-60 p-3 px-5 rounded-xl ${
             show ? "top-0" : "-top-80"
           } transitioncss md:hidden`}
         >
