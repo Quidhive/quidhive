@@ -1,36 +1,100 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🐝 Quidhive
 
-## Getting Started
+**Quidhive** is a smart escrow-based payment platform built for freelancers and clients.  
+It enables freelancers to receive payments securely in **USDC** while protecting payers until they’re satisfied with the work.  
+Built for transparency, trust, and control — without sacrificing simplicity.
 
-First, run the development server:
+🌐 **Website:** [quidhive.com](https://quidhive.com)  
+💻 **Demo:** [demo.quidhive.com](https://demo.quidhive.com)  
+📧 **Contact:** team@quidhive.com
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+---
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 📂 Repository Overview
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Due to the sensitive nature of financial transactions and our integration with **Circle’s API** (for crypto wallet and payment processing), we’ve structured our codebase into **four repositories**, separating public and private components.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Repository | Visibility | Description |
+|-------------|-------------|--------------|
+| **Waitlist** | Public | Collects early sign-ups and interest before launch. |
+| **Landing Page** | Public | Main marketing site showcasing product features and updates. |
+| **Main Frontend** | Private | Core user interface for freelancers and payers. |
+| **Main Backend** | Private | Handles payment logic, Circle wallet integrations, security, and escrow flow. |
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## 🔒 Why Some Repositories Are Private
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Quidhive manages **real financial transactions**, including:
+- **Escrow-based crypto payments**
+- **Client–freelancer release management**
+- **Secure Circle API interactions (keys, encryption, and wallet operations)**
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+To protect our users and comply with security best practices, our **main backend** and **main frontend** repositories remain **private**.  
+They contain sensitive business logic, encryption layers, and secure API integrations that cannot be publicly exposed.
 
-## Deploy on Vercel
+Our **public repos** (Waitlist & Landing Page) give the community a view of our brand and non-sensitive systems without compromising data integrity or user security.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## ⚙️ Tech Stack Overview
+
+### 🟢 **Waitlist**
+- **Framework:** Node.js (Fastify)
+- **Reason:** Lightweight and optimized for speed, ideal for handling large volumes of sign-ups and email verifications efficiently.
+
+### ⚪ **Landing Page**
+- **Framework:** Next.js
+- **Reason:** Great for SEO, fast static rendering, and excellent developer experience — helps us showcase Quidhive’s brand effectively.
+
+### 🟣 **Main Frontend**
+- **Framework:** Next.js
+- **Reason:** Smooth integration with APIs, optimized performance, and strong SSR support for a fast, secure user experience.
+
+### 🟡 **Main Backend**
+- **Language:** Go (Golang)  
+- **Framework:** GoFiber  
+- **Reason:** Go is fast, secure, and scalable — perfect for handling concurrent financial operations with reliability and precision.
+
+---
+
+## 🚀 Our Vision
+
+We’re building **trust for the future of freelance payments** — where payers stay protected, freelancers stay paid, and every transaction is powered by transparency and crypto-backed efficiency.
+
+---
+
+## 💡 Why We’re Joining Base Batches (Incubase)
+
+We’re joining **Base Batches (Incubase)** to scale Quidhive into the ecosystem that aligns most with our mission — bringing **trust and transparency to the global freelance economy** through onchain payments.
+
+By joining **Incubase**, we aim to:
+- Collaborate directly with **Base mentors and builders** who understand the challenges of bringing users onchain.
+- Strengthen our **go-to-market strategy** and **technical scalability** with guidance from experts in the Base ecosystem.
+- Validate our **onchain escrow model** using Base USDC, proving that freelancers and clients can transact securely, globally, and transparently.
+
+For us, Base Batches isn’t just an accelerator — it’s a community where we can refine Quidhive, grow sustainably, and contribute to the future of **onchain trust**.
+
+---
+
+## 🤝 How to Contribute
+
+We welcome contributions to our **public repositories**.
+
+1. **Fork** the repository  
+2. **Create a new branch** for your feature or bug fix  
+3. **Commit** your changes  
+4. **Open a Pull Request** with a clear description of your changes  
+
+For security reasons, contributions are only open for **Waitlist** and **Landing Page** repos.
+
+---
+
+## 📜 License
+
+This project is licensed under the **MIT License** — feel free to use, modify, and distribute with attribution.
+
+---
+
+Made with 💛 by the **Quidhive Team**
+
